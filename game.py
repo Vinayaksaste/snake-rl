@@ -25,10 +25,10 @@ class SnakeGame:
 
         valid_exts = {".png", ".jpg", ".jpeg", ".webp"}
         return [
-            str(p)
-            for p in folder.iterdir()
-            if p.is_file() and p.suffix.lower() in valid_exts
-        ]
+        p.as_posix()
+        for p in folder.iterdir()
+        if p.is_file() and p.suffix.lower() in valid_exts
+     ]
 
     def _random_food_face(self):
         if not self.friend_face_images:

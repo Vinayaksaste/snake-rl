@@ -8,12 +8,15 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 
 
+
 @lru_cache(maxsize=64)
 def image_to_data_uri(image_path: str):
     if not image_path:
         return None
 
-    path = Path(image_path)
+    normalized_path = image_path.replace("\\", "/")
+    path = Path(normalized_path)
+
     if not path.exists():
         return None
 
@@ -24,7 +27,6 @@ def image_to_data_uri(image_path: str):
     image_bytes = path.read_bytes()
     encoded = base64.b64encode(image_bytes).decode("utf-8")
     return f"data:{mime_type};base64,{encoded}"
-
 
 def draw_board_html(game):
     board_size = game.board_size
