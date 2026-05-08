@@ -1,0 +1,9 @@
+# streamlit
+# streamlit-autorefresh
+# numpy
+# matplotlib
+streamlit
+streamlit-autorefresh
+numpy
+matplotlib
+streamlit-keypress
